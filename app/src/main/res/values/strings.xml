@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">myplantplan</string>
+    <string name="textSignup">Not on My Plant Plan yet? Sign up</string>
+    <string name="textSignin">Already have an Account? Sign In</string>
+</resources>
