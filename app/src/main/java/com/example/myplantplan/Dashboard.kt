@@ -1,11 +1,12 @@
 package com.example.myplantplan
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageView
-import android.widget.Toast
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
+
 
 class Dashboard : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,20 +15,28 @@ class Dashboard : AppCompatActivity(){
         setContentView(R.layout.dashboard)
         val btnPlantChecker = findViewById<ImageView>(R.id.btnChecker)
         btnPlantChecker.setOnClickListener{
-
+            val intent = Intent(this, PlantChecker::class.java)
+            startActivity(intent)
         }
         val btnGuide = findViewById<ImageView>(R.id.btnGuide)
         btnGuide.setOnClickListener{
-            val intent = Intent (this, main_guide::class.java)
+            val intent = Intent(this, Guide::class.java)
             startActivity(intent)
-            Toast.makeText(this@Dashboard,"You clicked Guide",Toast.LENGTH_SHORT).show()
-
         }
-        val btnCalendar = findViewById<ImageView>(R.id.btnGuide)
-        btnCalendar.setOnClickListener{
-
-
+        val btnFeedback = findViewById<ImageView>(R.id.btnFeedback)
+        btnFeedback.setOnClickListener{
+            val intent = Intent(this,Feedback::class.java)
+            startActivity(intent)
         }
-
+        val btnSettings = findViewById<ImageView>(R.id.btnSettings)
+        btnSettings.setOnClickListener{
+            val intent = Intent(this, Settings::class.java)
+            startActivity(intent)
+        }
+        val btnCall = findViewById<ImageView>(R.id.btnContact)
+        btnCall.setOnClickListener {
+            val intentCall = Intent(Intent.ACTION_DIAL, Uri.parse("tel:+639837562813"))
+                startActivity(intentCall)
+        }
     }
-    }
+}

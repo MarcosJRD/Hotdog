@@ -2,4 +2,19 @@
     <string name="app_name">myplantplan</string>
     <string name="textSignup">Not on My Plant Plan yet? Sign up</string>
     <string name="textSignin">Already have an Account? Sign In</string>
+    <string-array name="plant">
+        <item>Talong</item>
+        <item>Talong2</item>
+        <item>Hotdog</item>
+        <item>tinapay</item>
+        <item>Carot</item>
+        <item>Carot</item>
+        <item>Carot</item>
+        <item>Carot</item>
+        <item>Carot</item>
+        <item>Carot</item>
+        <item>Carot</item>
+        <item>Carot</item>
+        <item>Carot</item>
+    </string-array>
 </resources>
