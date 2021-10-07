@@ -35,8 +35,13 @@ class Dashboard : AppCompatActivity(){
         }
         val btnCall = findViewById<ImageView>(R.id.btnContact)
         btnCall.setOnClickListener {
-            val intentCall = Intent(Intent.ACTION_DIAL, Uri.parse("tel:+639837562813"))
+            val intentCall = Intent(this, ContactUs::class.java)
                 startActivity(intentCall)
+        }
+        val btnCalendar = findViewById<ImageView>(R.id.btnCalendar)
+        btnCalendar.setOnClickListener{
+            val intent = Intent(this,Calendar::class.java)
+            startActivity(intent)
         }
     }
 }

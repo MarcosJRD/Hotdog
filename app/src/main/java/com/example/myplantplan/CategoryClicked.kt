@@ -1,4 +1,6 @@
 package com.example.myplantplan
 
-class CategoryClicked {
+interface CaterogyClicked {
+    fun categotyClicked(plant:MutableList<Plant>)
+
 }

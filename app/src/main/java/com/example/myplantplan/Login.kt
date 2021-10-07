@@ -4,26 +4,21 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
-import android.widget.CheckBox
-import android.widget.EditText
 import android.widget.TextView
-
+import android.widget.Toast
+import kotlinx.android.synthetic.main.login.*
+import kotlinx.android.synthetic.main.login.editUsername
+import kotlinx.android.synthetic.main.register.*
 
 
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
-    val username = findViewById<EditText>(R.id.editUsername)
-    val password = findViewById<EditText>(R.id.editPassword)
-    val btnLog = findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.loginbtn)
-    btnLog.setOnClickListener{
-        if (username.text.toString().equals("admin")&&password.text.toString().equals("password")) {
-            val intent = Intent(this, Dashboard::class.java)
-            startActivity(intent)
-        }
+
+
+    loginbtn.setOnClickListener{
+        Login()
     }
     val btnFb = findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.fbbtn)
     btnFb.setOnClickListener{
@@ -47,4 +42,25 @@ class Login : AppCompatActivity() {
     }
 
     }
+
+    /**
+     * This method is to validate the input text fields and verify login credentials from SQLite
+     */
+
+    private fun Login(){
+        val databasehandler: DatabaseHelper = DatabaseHelper(this)
+
+        if (databasehandler.checkUser(editUsername!!.text.toString().trim { it <= ' ' }, edit_Password!!.text.toString().trim { it <= ' ' })) {
+            val accountsIntent = Intent(this, Dashboard::class.java)
+            startActivity(accountsIntent)
+        } else {
+
+            // Snack Bar to show success message that record is wrong
+            Toast.makeText(this,"Username or Password is not Correct", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
+
+
 }

@@ -1,4 +1,3 @@
 package com.example.myplantplan
 
-class UsermodelClass {
-}
+class UsermodelClass (val id: Int, val name: String,val pass:String)
